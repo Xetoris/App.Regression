@@ -1,0 +1,25 @@
+<div id="tick-display">
+  <div id="results-header">
+    <h1>Results</h1>
+    <span></span>
+  </div>
+  <div id="results-grid">
+    <div class="result-row columns-{{displayPerRow}}">
+      <div *ngFor="let result of resultSet"
+           class="result-tick result-{{result.status}}"
+           (click)="focusResult(result)">
+      </div>
+    </div>
+  </div>
+
+  <mat-form-field id="ticksPerRowAdjuster">
+    <label for="displayPerRow">
+      Ticks per row:
+    </label>
+    <mat-select id="displayPerRow" [(value)]="displayPerRow">
+      <mat-option *ngFor="let amount of perRowOptions" [value]="amount">
+        {{amount}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
