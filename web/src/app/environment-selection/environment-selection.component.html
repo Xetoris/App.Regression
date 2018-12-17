@@ -1,0 +1,22 @@
+<mat-grid-list [cols]="1" rowHeight="400px">
+  <mat-grid-tile [colspan]="1" [rowspan]="1">
+    <mat-card class="micro-card">
+      <mat-card-title>
+        Environment Selection
+      </mat-card-title>
+      <mat-card-content>
+        <form class="experiment-selection-form"
+              [formGroup]="eventSelectForm"
+              (ngSubmit)="selectEnvironment(eventSelectForm.get('environment').value)">
+          <mat-form-field>
+            <mat-select formControlName="environment">
+              <mat-option *ngFor="let env of environments" value="{{env}}">{{env}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <br/>
+          <button mat-button [disabled]="eventSelectForm.invalid">Select</button>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
