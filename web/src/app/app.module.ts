@@ -17,14 +17,12 @@ import { AppNavigationComponent } from './app-navigation/app-navigation.componen
 import { AppRoutingModule } from './app-routing.module';
 import { EnvironmentSelectionComponent } from './environment-selection/environment-selection.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { ResultDashboardComponent } from './result-dashboard/result-dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppNavigationComponent,
     EnvironmentSelectionComponent,
-    ResultDashboardComponent,
   ],
   imports: [
     AppRoutingModule,

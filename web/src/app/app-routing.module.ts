@@ -10,7 +10,8 @@ const routes: Routes = [
     component: EnvironmentSelectionComponent
   },
   {
-    path: 'environments/:environment/dashboard'
+    path: 'environments/:environment/dashboard',
+    loadChildren: './results-dashboard/results-dashboard.module#ResultsDashboardModule'
   },
   {
     path: '',
