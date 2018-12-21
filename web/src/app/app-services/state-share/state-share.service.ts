@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { take } from 'rxjs/operators';
+
+import { RegressionAppService } from '../regression-app/regression-app.service';
+import { RegressionResultInterface } from '../regression-app/models/regression-result.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -7,9 +11,13 @@ import { BehaviorSubject } from 'rxjs';
 export class StateShareService {
 
   public targetedEnvironment$: BehaviorSubject<string>;
+  public lastResults$: BehaviorSubject<Array<RegressionResultInterface>>;
 
-  constructor() {
+  constructor(
+    private _regressionService: RegressionAppService
+  ) {
     this.targetedEnvironment$ = new BehaviorSubject(null);
+    this.lastResults$ = new BehaviorSubject(null);
   }
 
   /**
@@ -18,5 +26,15 @@ export class StateShareService {
    */
   setTargetEnvironment(environment: string) {
     this.targetedEnvironment$.next(environment);
+  }
+
+  /**
+   * Polls the most recent results. Normally we'd store that in a view or some such, but this allows us to toggle between views
+   *   without having to pass a bunch of lists around.
+   */
+  pollResults() {
+    this._regressionService.regressionResults('test', 'test')
+      .pipe(take(1))
+      .subscribe(x => this.lastResults$.next(x));
   }
 }

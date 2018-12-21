@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
 import { RegressionResultInterface } from '../../app-services/regression-app/models/regression-result.interface';
@@ -11,6 +11,7 @@ import {ResultDetailModalComponent} from '../result-detail-modal/result-detail-m
 })
 export class TickDisplayComponent implements OnInit {
 
+  @Input()
   resultSet: Array<RegressionResultInterface>;
   displayPerRow: number;
   perRowOptions: Array<number> = [10, 20, 30, 50];
@@ -21,7 +22,6 @@ export class TickDisplayComponent implements OnInit {
 
   ngOnInit() {
     this.displayPerRow = 30;
-    this.resultSet = [];
   }
 
   /**
