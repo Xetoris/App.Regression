@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogModule } from '@angular/material';
 
 import { ResultDetailModalComponent } from './result-detail-modal.component';
 
@@ -8,7 +9,8 @@ describe('ResultDetailModalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ResultDetailModalComponent ]
+      declarations: [ ResultDetailModalComponent ],
+      imports: [ MatDialogModule ]
     })
     .compileComponents();
   }));

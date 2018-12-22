@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 
 import { RegressionResultInterface } from '../../app-services/regression-app/models/regression-result.interface';
-import {ResultDetailModalComponent} from '../result-detail-modal/result-detail-modal.component';
+import { ResultDetailModalComponent } from '../result-detail-modal/result-detail-modal.component';
 
 @Component({
   selector: 'app-tick-display',

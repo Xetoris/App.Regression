@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogModule, MatSelectModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TickDisplayComponent } from './tick-display.component';
 
@@ -8,7 +10,12 @@ describe('TickDisplayComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TickDisplayComponent ]
+      declarations: [ TickDisplayComponent ],
+      imports: [
+        BrowserAnimationsModule,
+        MatDialogModule,
+        MatSelectModule
+      ]
     })
     .compileComponents();
   }));
